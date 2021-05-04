@@ -8,19 +8,19 @@ namespace CommandsSample
         static void Main(string[] args) {
             var assembly = Assembly.GetExecutingAssembly();
             foreach (var type in assembly.GetTypes()) {
-                if (!type.IsAssignableTo(typeof(Command))) {
-                    Console.WriteLine($"{type.Name} does not inherit from Command.");
+                // Skip types that do not inherit from Command
+                if (!type.IsAssignableTo(typeof(Command)))
                     continue;
-                }
-
-                if (type.IsAbstract) {
-                    Console.WriteLine($"{type.Name} is Abstract.");
+                // Skip types that are abstract (and can not be instantiated)
+                if (type.IsAbstract)
                     continue;
-                }
-                Console.WriteLine($"Found Command: {type.Name}");
+                // Get the default constructor
                 var constructor = type.GetConstructor(new Type[0]);
+                // Use it
                 var instance = constructor.Invoke(new object[0]);
+                // Cast the result to the common base type
                 var command = instance as Command;
+                // And run the command
                 command.Run(args);
             }
         }
