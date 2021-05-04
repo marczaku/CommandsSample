@@ -3,9 +3,8 @@ using System.Net;
 using System.Net.Sockets;
 
 namespace CommandsSample {
-	public class Server : Command {
-		protected override string Name => "server";
-		protected override void DoRun() {
+	public class Server : ICommand {
+		public void Run(string[] args) {
 			var listener = new TcpListener(IPAddress.Any, 4444);
 			listener.Start();
 			var client = listener.AcceptTcpClient();

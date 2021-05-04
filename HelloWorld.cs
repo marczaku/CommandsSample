@@ -4,9 +4,8 @@ using System.Net;
 using System.Net.Sockets;
 
 namespace CommandsSample {
-	public class HelloWorld : Command {
-		protected override string Name => "hello-world";
-		protected override void DoRun() {
+	public class HelloWorld : ICommand {
+		public void Run(string[] args) {
 			Console.WriteLine("HelloWorld!");
 		}
 	}
