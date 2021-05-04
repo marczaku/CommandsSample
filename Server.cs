@@ -3,6 +3,7 @@ using System.Net;
 using System.Net.Sockets;
 
 namespace CommandsSample {
+	// ReSharper disable once UnusedType.Global
 	public class Server : ICommand {
 		public void Run(string[] args) {
 			var listener = new TcpListener(IPAddress.Any, 4444);

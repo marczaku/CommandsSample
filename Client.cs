@@ -4,6 +4,7 @@ using System.Net;
 using System.Net.Sockets;
 
 namespace CommandsSample {
+	// ReSharper disable once UnusedType.Global
 	public class Client : ICommand {
 		public void Run(string[] args) {
 			var client = new TcpClient(new IPEndPoint(IPAddress.Any, 4445));
