@@ -5,4 +5,16 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="AttributeExample\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Remove="AttributeExample\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="AttributeExample\**" />
+  </ItemGroup>
+
 </Project>
