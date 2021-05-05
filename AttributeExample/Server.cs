@@ -6,7 +6,8 @@ namespace AttributeExample {
 	// ReSharper disable once UnusedType.Global
 	public class Server {
 		[Command("Server")]
-		public void Run(string[] args) {
+		public void Run(string[] args)
+		{
 			var listener = new TcpListener(IPAddress.Any, 4444);
 			listener.Start();
 			var client = listener.AcceptTcpClient();
